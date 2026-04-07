@@ -209,6 +209,14 @@ const steps: Step[] = [
   },
 ];
 
+const OPEN_SOURCE_TOOLS = new Set([
+  "Retool",
+  "igir",
+  "EmulationStation",
+  "Pegasus",
+  "RetroArch",
+]);
+
 const reveal: Variants = {
   hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
   show: {
@@ -342,6 +350,9 @@ function StepCard({ step, index }: { step: Step; index: number }) {
         {!!step.tools?.length && (
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {step.tools.map((tool) => (
+              (() => {
+                const isOpenSource = OPEN_SOURCE_TOOLS.has(tool.name);
+                return (
               <a
                 key={`${step.id}-${tool.name}`}
                 href={tool.url}
@@ -360,6 +371,17 @@ function StepCard({ step, index }: { step: Step; index: number }) {
                     {tool.description}
                   </p>
                 )}
+                <div className="mt-2 flex flex-wrap gap-1.5">
+                  <span
+                    className={`rounded-full border px-2.5 py-1 text-[11px] font-medium ${
+                      isOpenSource
+                        ? "border-emerald-300/30 bg-emerald-400/10 text-emerald-200"
+                        : "border-slate-300/30 bg-slate-400/10 text-slate-200"
+                    }`}
+                  >
+                    {isOpenSource ? "Open source" : "Not open source"}
+                  </span>
+                </div>
                 {!!tool.os?.length && (
                   <div className="mt-2 flex flex-wrap gap-1.5">
                     {tool.os.map((os) => (
@@ -368,6 +390,8 @@ function StepCard({ step, index }: { step: Step; index: number }) {
                   </div>
                 )}
               </a>
+                );
+              })()
             ))}
           </div>
         )}
