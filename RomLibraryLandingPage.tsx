@@ -46,7 +46,7 @@ const steps: Step[] = [
     icon: <FolderOpen className="h-5 w-5" />,
     tools: [
       {
-        name: "Personl cartridge dump",
+        name: "Personal cartridge dump",
         url: "https://dumping.guide/",
         description:
           "Community-maintained hardware guides for dumping your own cartridges across multiple systems.",
@@ -62,7 +62,7 @@ const steps: Step[] = [
   {
     id: "step-2",
     short: "DAT Databases",
-    title: "DAT Files (Reference Databases)",
+    title: "DAT Files",
     explanation:
       "DAT files are trusted catalogs of known games. They help tools verify what belongs in a clean collection.",
     icon: <Database className="h-5 w-5" />,
@@ -86,26 +86,53 @@ const steps: Step[] = [
   },
   {
     id: "step-3",
-    short: "Filtering",
-    title: "Filtering the Library (Optional)",
-    explanation:
-      "Curation tools help keep only the versions you care about, like preferred regions or one best entry per game.",
-    note: "Common concept: 1G1R (One Game One ROM).",
-    icon: <Filter className="h-5 w-5" />,
-    tools: [{ name: "Retool", url: "https://github.com/unexpectedpanda/retool", os: ["Windows", "Mac", "Linux"] }],
-  },
-  {
-    id: "step-4",
     short: "Verification",
     title: "Verify and Organize the Library",
     explanation:
-      "Management tools compare your files against DAT references, flag issues, and help keep names and structure consistent.",
+      "These management tools compare your files against DAT references, flag issues, and help keep names and structure consistent.",
     icon: <CheckCircle2 className="h-5 w-5" />,
     tools: [
-      { name: "ClrMAMEPro", url: "https://mamedev.emulab.it/clrmamepro/", os: ["Windows"] },
-      { name: "RomVault", url: "https://www.romvault.com/", os: ["Windows"] },
-      { name: "RomCenter", url: "https://www.romcenter.com/", os: ["Windows"] },
-      { name: "igir", url: "https://github.com/emmercm/igir", os: ["Windows", "Mac", "Linux"] },
+      {
+        name: "ClrMAMEPro",
+        url: "https://mamedev.emulab.it/clrmamepro/",
+        os: ["Windows"],
+        description: "Classic Windows app to scan ROMs against DATs and fix names and sets.",
+      },
+      {
+        name: "RomVault",
+        url: "https://www.romvault.com/",
+        os: ["Windows"],
+        description: "Windows tool focused on organizing and syncing large ROM vaults to DAT rules.",
+      },
+      {
+        name: "RomCenter",
+        url: "https://www.romcenter.com/",
+        os: ["Windows"],
+        description: "Windows database-style manager to browse, verify, and fix ROM collections.",
+      },
+      {
+        name: "igir",
+        url: "https://github.com/emmercm/igir",
+        os: ["Windows", "Mac", "Linux"],
+        description: "Cross-platform command-line tool to sort, rename, and verify ROMs against DATs.",
+      },
+    ],
+  },
+  {
+    id: "step-4",
+    short: "Filtering",
+    title: "Filtering the Library (Optional)",
+    explanation:
+      "Filtering tools help keep only the versions you care about, like preferred regions or one best entry per game.",
+    note: "Common concept: 1G1R (One Game One ROM).",
+    icon: <Filter className="h-5 w-5" />,
+    tools: [
+      {
+        name: "Retool",
+        url: "https://github.com/unexpectedpanda/retool",
+        os: ["Windows", "Mac", "Linux"],
+        description: "Builds smaller ROM lists from your collection using rules like one game per title.",
+      },
     ],
   },
   {
@@ -116,33 +143,68 @@ const steps: Step[] = [
       "Metadata services add titles, descriptions, screenshots, and box art so your library is easy to browse.",
     icon: <Image className="h-5 w-5" />,
     tools: [
-      { name: "Skraper", url: "https://www.skraper.net/", os: ["Windows"] },
-      { name: "ScreenScraper", url: "https://www.screenscraper.fr/", os: ["Windows", "Mac", "Linux"] },
+      {
+        name: "Skraper",
+        url: "https://www.skraper.net/",
+        os: ["Windows", "Mac", "Linux"],
+        description: "Desktop app that downloads box art and media for your games in bulk.",
+      },
+      {
+        name: "ScreenScraper",
+        url: "https://www.screenscraper.fr/",
+        os: ["Windows", "Mac", "Linux"],
+        description: "Online database many tools use to match games and fetch artwork and info.",
+      },
     ],
   },
   {
     id: "step-6",
-    short: "Frontend",
-    title: "Game Library Frontends",
+    short: "Emulator",
+    title: "Emulators",
     explanation:
-      "Frontends present your collection in a friendly interface and launch emulators for each game.",
-    icon: <Library className="h-5 w-5" />,
+      "Emulators imitate original hardware so your game files can run on a modern PC or device.",
+    icon: <Gamepad2 className="h-5 w-5" />,
     tools: [
-      { name: "LaunchBox", url: "https://www.launchbox-app.com/", os: ["Windows"] },
-      { name: "EmulationStation", url: "https://emulationstation.org/", os: ["Windows", "Mac", "Linux"] },
-      { name: "Pegasus", url: "https://pegasus-frontend.org/", os: ["Windows", "Mac", "Linux"] },
+      {
+        name: "RetroArch",
+        url: "https://www.retroarch.com/",
+        os: ["Windows", "Mac", "Linux"],
+        description: "One app that bundles many emulators (“cores”) behind a single interface.",
+      },
+      {
+        name: "Standalone emulators",
+        url: "#",
+        os: ["Windows", "Mac", "Linux"],
+        description: "Separate apps per system (e.g. one program per console) if you prefer that route.",
+      },
     ],
   },
   {
     id: "step-7",
-    short: "Emulator",
-    title: "Emulators",
+    short: "Frontend",
+    title: "Game Library Frontends",
     explanation:
-      "Emulators are the software that actually runs the games after your frontend sends the launch command.",
-    icon: <Gamepad2 className="h-5 w-5" />,
+      "Frontends turn folders of games into a browsable library and usually launch your chosen emulator when you play.",
+    icon: <Library className="h-5 w-5" />,
     tools: [
-      { name: "RetroArch", url: "https://www.retroarch.com/", os: ["Windows", "Mac", "Linux"] },
-      { name: "Standalone emulators", url: "#", os: ["Windows", "Mac", "Linux"] },
+      {
+        name: "LaunchBox",
+        url: "https://www.launchbox-app.com/",
+        os: ["Windows"],
+        description: "Windows launcher with a polished game library UI and metadata support.",
+      },
+      {
+        name: "EmulationStation",
+        url: "https://emulationstation.org/",
+        os: ["Windows", "Mac", "Linux"],
+        description: "Full-screen library view; often used on PCs and small retro devices.",
+      },
+      {
+        name: "Pegasus",
+        url: "https://pegasus-frontend.org/",
+        os: ["Windows", "Mac", "Linux"],
+        description: "Lightweight, themeable frontend you can customize for your setup.",
+      },
     ],
   },
 ];
@@ -207,31 +269,31 @@ function Background() {
 function HeroPreview() {
   const reduce = useReducedMotion();
   return (
-    <Glass className="relative mt-10 p-5 sm:p-7">
+    <Glass className="relative mt-12 p-6 sm:p-8 md:p-10">
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/10 via-cyan-400/5 to-fuchsia-500/10" />
-      <div className="relative grid gap-3 md:grid-cols-7">
+      <div className="relative grid gap-5 md:grid-cols-7 md:gap-x-6 md:gap-y-6">
         {steps.map((step, i) => (
           <React.Fragment key={step.id}>
             <motion.div
-              className="rounded-xl border border-white/10 bg-slate-900/60 p-3"
+              className="rounded-xl border border-white/10 bg-slate-900/60 p-4"
               initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.35, delay: i * 0.04 }}
               whileHover={{ y: -3 }}
             >
-              <div className="inline-flex rounded-lg border border-indigo-300/20 bg-indigo-300/10 p-2 text-indigo-200">
+              <div className="inline-flex rounded-lg border border-indigo-300/20 bg-indigo-300/10 p-2.5 text-indigo-200">
                 {step.icon}
               </div>
-              <p className="mt-2 text-xs font-medium text-white">{step.short}</p>
+              <p className="mt-3 text-xs font-medium leading-snug text-white">{step.short}</p>
             </motion.div>
             {i < steps.length - 1 && (
-              <div className="hidden items-center justify-center md:flex">
+              <div className="hidden items-center justify-center px-2 md:flex md:px-3">
                 <motion.div
-                  animate={reduce ? {} : { x: [0, 4, 0], opacity: [0.4, 1, 0.4] }}
+                  animate={reduce ? {} : { x: [0, 5, 0], opacity: [0.4, 1, 0.4] }}
                   transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <ArrowRight className="h-4 w-4 text-indigo-200/70" />
+                  <ArrowRight className="h-5 w-5 text-indigo-200/70" />
                 </motion.div>
               </div>
             )}
@@ -406,15 +468,15 @@ export default function RomLibraryLandingPage() {
                   <ArrowRight className="hidden h-4 w-4 text-indigo-200/80 sm:block" />
                   <span className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5">DAT Databases</span>
                   <ArrowRight className="hidden h-4 w-4 text-indigo-200/80 sm:block" />
-                  <span className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5">Filtering (optional)</span>
-                  <ArrowRight className="hidden h-4 w-4 text-indigo-200/80 sm:block" />
                   <span className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5">Verification / Cleanup</span>
+                  <ArrowRight className="hidden h-4 w-4 text-indigo-200/80 sm:block" />
+                  <span className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5">Filtering (optional)</span>
                   <ArrowRight className="hidden h-4 w-4 text-indigo-200/80 sm:block" />
                   <span className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5">Metadata</span>
                   <ArrowRight className="hidden h-4 w-4 text-indigo-200/80 sm:block" />
-                  <span className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5">Frontend</span>
-                  <ArrowRight className="hidden h-4 w-4 text-indigo-200/80 sm:block" />
                   <span className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5">Emulator</span>
+                  <ArrowRight className="hidden h-4 w-4 text-indigo-200/80 sm:block" />
+                  <span className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5">Frontend</span>
                 </div>
               </div>
 
