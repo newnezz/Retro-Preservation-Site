@@ -101,7 +101,7 @@ const steps: Step[] = [
       {
         name: "RomVault",
         url: "https://www.romvault.com/",
-        os: ["Windows"],
+        os: ["Windows", "Linux"],
         description: "Windows tool focused on organizing and syncing large ROM vaults to DAT rules.",
       },
       {
@@ -146,7 +146,7 @@ const steps: Step[] = [
       {
         name: "Skraper",
         url: "https://www.skraper.net/",
-        os: ["Windows", "Mac", "Linux"],
+        os: ["Windows", "Linux"],
         description: "Desktop app that downloads box art and media for your games in bulk.",
       },
       {
